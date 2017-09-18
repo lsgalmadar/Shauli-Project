@@ -1,0 +1,56 @@
+﻿@model ShauliBlogProject.Models.Post
+
+@{
+    ViewBag.Title = "Edit";
+    bool isAdmin = ViewBag.IsAdmin ?? false;
+}
+
+<h4>Add New Post</h4>
+
+<form action="@Href("~/Blog/Update")" method="post" id="postForm">
+    @if (Model.PostID != -1)
+    {
+        <input type="hidden" name="id" value="@Model.PostID" />
+    }
+    @{ DateTime datetime = Model.postDate.Year > 2000 ? Model.postDate : DateTime.Now; }
+    <input type="text" name="postDate" value="@datetime" /> Date <br />
+    <input type="text" name="Title" value="@Model.Title" /> Title <br />
+    <input type="text" name="Author" value="@Model.Author" /> Author <br />
+    <input type="text" name="url_author_post" value="@Model.url_author_post" /> URL's Author  <br />
+    <input type="text" id="image-text" name="image" value="@Model.image" disabled /> Image <input type="checkbox" id="check-image" /> <br />
+    <input type="text" id="video-text" name="video" value="@Model.video" disabled /> Video <input type="checkbox" id="check-video" /> <br />
+    <textarea name="contentPost" rows="10" cols="80">@Model.contentPost</textarea> <br />
+    <input type="submit" name="submit" value="Submit" />
+</form>
+
+<script>
+    var checkerImage = document.getElementById('check-image');
+    var imageText = document.getElementById('image-text');
+    var checkeVideo = document.getElementById('check-video');
+    var videoText = document.getElementById('video-text');
+
+    checkerImage.onchange = function ()
+    {
+        if (this.checked)
+        {
+            imageText.disabled = false;
+        }
+        else
+        {
+            imageText.disabled = true;
+        }
+    }
+
+    checkeVideo.onchange = function ()
+    {
+        if (this.checked)
+        {
+            videoText.disabled = false;
+        }
+        else
+        {
+            videoText.disabled = true;
+        }
+    }
+</script>
+

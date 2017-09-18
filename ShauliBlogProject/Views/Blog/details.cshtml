@@ -1,0 +1,9 @@
+﻿@model ShauliBlogProject.Models.Post
+
+@{
+    ViewBag.Title = "details";
+    bool isadmin = ViewBag.IsAdmin ?? false;
+}
+
+@PostHelper.Render(Model, Html, isadmin, true, true)
+

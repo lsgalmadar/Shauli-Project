@@ -1,0 +1,46 @@
+﻿@{
+    List<ShauliBlogProject.Models.FansGroubByViewModel> countries = ViewBag.Countries;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h4 class="page-header">
+                Summary
+                <small>Number of Fans per country</small>
+            </h4>
+            <div class="chart-center">
+                @Html.Partial("~/Views/Blog/Statistics.cshtml", countries)
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<h4>Fans Club & Comments</h4>
+
+<div class="box-table">
+    <table class="table">
+        <tr>
+            <th>
+                Email
+            </th>
+            <th>
+                Title
+            </th>
+        </tr>
+        @foreach (var Fan in ViewBag.fans)
+        {
+            <tr>
+                <td>
+                    @Fan.url_author_comment
+                </td>
+                <td>
+                    @Fan.Author
+                </td>
+            </tr>
+        }
+    </table>
+</div>

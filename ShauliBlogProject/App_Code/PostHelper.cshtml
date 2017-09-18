@@ -1,0 +1,85 @@
+﻿@using ShauliBlogProject.Models;
+
+@helper Render(Post post, System.Web.Mvc.HtmlHelper html, bool isAdmin, bool showComments, bool details)
+{
+    <section>
+        <article class="blogPost">
+            <header>
+                <div class="postTitle"><h2><a href="@Href("~/Blog/Details/" + post.PostID)">@post.Title</a></h2></div>
+                <p>Posted on @post.postDate.ToString("MMM").ToUpper() @post.postDate.ToString("dd").ToUpper()  @post.postDate.ToString("yyyy").ToUpper() by <a href="#">@post.Author</a> - <a href="#comments">@post.comments.Count() comments</a></p>
+            </header>
+            <div>
+                @if (!User.IsInRole("Admins") || details) 
+                {
+                    @html.Raw(post.contentPost)
+                    <img src="@post.image" />
+                    if (!string.IsNullOrEmpty(post.video))
+                    {
+                        <video controls="controls">
+                            <source src="@post.video" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    }
+                }
+            </div>
+        </article>
+        @if (User.IsInRole("Admins"))
+        {
+            <div class="postControlPanel" style="margin-top:10px;">
+                <a href="@Href("~/Blog/Delete/" + post.PostID)">Delete</a>
+                <a href="@Href("~/Blog/Edit/" + post.PostID)">Edit</a>
+            </div>
+        }
+    </section>
+
+    <hr />
+
+    if (showComments)
+    {
+        <h4>Comments</h4> 
+        <div id="myDIV">
+            <section id="comments">
+                @if (post.comments.Count() != 0)
+                {
+                    <h4>Comments</h4>
+                }
+                @foreach (Comment comment in post.comments)
+                {
+                    <article>
+                        <header>
+                            <a href="#">@comment.Author</a> on <time datetime="2009-06-29T23:35:20+01:00">June 29th 2009 at 23:35</time>
+                        </header>
+                        @comment.content_comment
+                        @if (User.IsInRole("Admins"))
+                        {
+                            <div class="commentControlPanel" style="margin-top:10px;">
+                                <a href="@Href("~/Blog/DeleteComment/" + comment.CommentID)">Delete</a>
+                            </div>
+                        }
+                    </article>
+                }
+            </section>
+        </div>
+    }
+
+    <form action="@Href("~/Blog/Comment/" + post.PostID)" method="post" class="formcom">
+        <h3>Post a comment</h3>
+        <p>
+            <label for="name">Title</label>
+            <input name="name" id="Title" type="text" placeholder="Enter Title.." required />
+        </p>
+        <p>
+            <label for="author">Name</label>
+            <input name="Author" id="email" type="text" placeholder="Enter Name.." required />
+        </p>
+        <p>
+            <label for="url">URL</label>
+            <input name="url_author_comment" id="website" type="text" placeholder="Enter Url.." />
+        </p>
+        <p>
+            <label for="comment">Comment</label>
+            <textarea class="txtarea" name="content_comment" id="comment" placeholder="Write a post.." required></textarea>
+        </p>
+        <p><input type="submit" value="Post comment" /></p>
+    </form>
+}

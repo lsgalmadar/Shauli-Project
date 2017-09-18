@@ -1,0 +1,322 @@
+﻿/*By Sharon Mordechay 304866551.*/
+
+/*------------------------------
+        BASIC SETUP
+------------------------------*/
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges*/
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists*/ 
+   will truncate terms that are too long to fit in the left column 
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default*/ 
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Makeshift CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: newFont;
+    src: url(http://www.example.org/mycustomfont.ttf).format('truetype');
+}
+
+/* Tell the browser to render HTML 5 elements as block */
+header, footer, section, aside, nav, article {
+    display: block;
+}
+
+header h1 {
+    text-shadow: 3px 3px #DDDDDD;
+}
+
+body {
+    margin: 0 auto;
+    padding: 22px 0;
+    width: 940px;
+    font: 13px/22px Helvetica, Arial, sans-serif;
+    background: #F0F0F0;
+}
+
+h1, h2 {
+    font-size: 28px;
+    line-height: 44px;
+    padding: 22px 0;
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 22px;
+    padding: 11px 0;
+}
+
+p {
+    padding-bottom: 22px;
+}
+
+
+#transDemo2 div {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -ms-transition: all 2s ease-in-out;
+    transition: all 2s ease-in-out;
+}
+
+#transDemo2 div:hover, #transDemo2 div.hover_effect {
+    -webkit-transform: rotate(720deg) scale(2,2);
+    -moz-transform: rotate(720deg) scale(2,2);
+    -ms-transform: rotate(720deg) scale(2,2);
+    transform: rotate(720deg) scale(2,2);
+}
+
+
+/*------------------------------
+            FILTER
+------------------------------*/
+
+#input-h {
+    height: 24px;
+}
+
+#filter-blog {
+    margin: 10px
+}
+
+#filter-blog #btn-filter {
+    height: 24px;
+    width: 100px;
+}
+
+/*------------------------------
+CONTENT AREA AND SIDEBAR LAYOUT
+------------------------------*/
+
+#content {
+    display: table;
+}
+
+#mainContent {
+    display: table-cell;
+    width: 620px;
+    padding-right: 22px;
+}
+
+aside {
+    display: table-cell;
+    width: 300px;
+    background: url("/images/sidebar_background.png") top left;
+}
+
+
+/*------------------------------
+            SIDEBAR
+------------------------------*/
+aside section {
+    margin: 22px 0 0 22px;
+    padding: 11px 22px;
+    background: url("/images/sidebar_section_background.png") repeat-x;
+    background: -webkit-linear-gradient(#d9d9d9, #e2e2e2) repeat-x;
+    -moz-border-radius: 11px;
+    -webkit-border-radius: 11px;
+}
+
+aside section ul {
+    margin: 0 0 0 22px;
+    list-style: none;
+}
+
+aside section ul li a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+
+aside section ul li a:hover {
+    text-decoration: underline;
+}
+
+/*------------------------------
+            BLOG POST
+------------------------------*/
+.blogPost header p, .blogPost header p a {
+    font-size: 14px;
+    font-style: italic;
+    color: #777;
+    font-family: newFont, Verdana, Tahoma;
+}
+
+.blogPost header p a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.blogPost div {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    -moz-column-gap: 22px;
+    -webkit-column-gap: 22px;
+}
+
+.blogPost img {
+    margin: 22px 0;
+    -webkit-box-shadow: 3px 3px 7px #777;
+}
+
+.blogPost video {
+    margin: 12px 0;
+    width: 100%;
+    height: auto;
+    -webkit-box-shadow: 3px 3px 7px #777;
+}
+
+/*------------------------------
+            COMMENTS
+------------------------------*/
+
+#comments {
+    margin-top: 21px;
+    padding-top: 22px;
+    border-top: 1px solid #d7d7d7;
+}
+
+#comments article {
+    display: table;
+    padding: 22px;
+}
+
+#comments article:nth-child(odd) {
+    padding: 21px;
+    background: #E3E3E3;
+    border: 1px solid #d7d7d7;
+    -moz-border-radius: 11px;
+    -webkit-border-radius: 11px;
+}
+
+#comments article header {
+    display: table-cell;
+    width: 220px;
+    padding-right: 22px;
+}
+
+#comments article header a {
+    display: block;
+    font-weight: bold;
+    color: #000;
+}
+
+#comments article header a:hover {
+    text-decoration: none;
+}
+
+#comments article p {
+    padding: 0;
+}
+
+
+/*------------------------------
+        COMMENT FORM
+------------------------------*/
+form {
+    /*margin-top: 21px;
+    padding-top: 22px;
+    border-top: 1px solid #d7d7d7;*/
+}
+
+form p {
+    display: table;
+    margin-bottom: 22px;
+    padding: 0 22px;
+}
+
+form label {
+    display: table-cell;
+    width: 140px;
+    padding-right: 20px;
+    text-align: right;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+form input[type="text"], form input[type="email"], form input[type="url"] {
+    width: 100%;
+}
+
+form textarea {
+    width: 594px;
+    height: 156px;
+    border: 1px solid #d7d7d7;
+}
+
+form input[type="submit"] {
+    /*margin-left: 162px;*/
+}
+
+/*------------------------------
+            Others
+------------------------------*/
+
+.txtarea {
+    width: 300px;
+    height: 90px;
+}
+
+.formcom input[type=text] {
+    width: 300px;
+}
+
+.sidenav {
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+.row.content {
+    height: 1500px
+}
+
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+        padding: 15px;
+    }
+
+    .row.content {
+        height: auto;
+    }
+}
+
+#myInput {
+    background-image: url("/Images/searchicon.png");
+    background-position: 10px 8px;
+    background-repeat: no-repeat;
+    width: 92%;
+    font-size: 16px;
+    padding: 8px 12px 8px 40px;
+    border: 1px solid #ddd;
+    margin: 12px;
+}
+
+#search a:hover {
+    padding: 0px;
+    border-radius: 3px 4px;
+}

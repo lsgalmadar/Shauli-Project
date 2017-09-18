@@ -1,0 +1,58 @@
+﻿@model ShauliBlogProject.Models.Fan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.birthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.birthDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seniority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seniority)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

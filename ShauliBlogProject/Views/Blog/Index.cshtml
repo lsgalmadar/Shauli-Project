@@ -1,0 +1,46 @@
+﻿@using ShauliBlogProject.Models;
+@model IEnumerable<Post>
+
+@{
+    ViewBag.Title = "Index";
+    bool isPreviousLinkVisible = ViewBag.IsPreviousLinkVisible ?? false;
+    bool isNextLinkVisible = ViewBag.IsNextLinkVisible ?? false;
+    bool isAdmin = ViewBag.IsAdmin ?? false;
+}
+
+<div id="filter-blog">
+    @using (Html.BeginForm("Index", "Blog", FormMethod.Post))
+    {
+        <label>Filter Search:</label> <br />
+        <input type="date" name="dateSearch" size="15">
+        <input id="input-h" type="search" name="authorSearch" placeholder="By Author.." style="width:105px;">
+        <input id="input-h" type="search" name="emailSearch" placeholder="By Email.." style="width:105px;">
+        <input id="input-h" type="search" name="wordsSearch" maxlength="10" placeholder="By Words.." style="width:105px;">
+        <input id="btn-filter" type="submit" value="Filter">
+    }
+</div>
+
+
+@foreach (Post post in Model)
+{ 
+    @PostHelper.Render(post, Html, isAdmin, true, false)
+    <br />
+}
+
+
+@if (isPreviousLinkVisible)
+{
+    <a id="previousLink" href="@Href("~/Blog/Index/" + (ViewBag.PageNumber - 1))">&lt; Previous Page</a>
+}
+@if (isNextLinkVisible)
+{
+    <a id="nextLink" href="@Href("~/Blog/Index/" + (ViewBag.PageNumber + 1))">next Page &gt;</a>
+}
+
+<hr />
+@if (User.IsInRole("Admins"))
+{
+    <div class="btn btn-default">
+        @Html.ActionLink("Add New Post", "Edit")
+    </div>
+}
