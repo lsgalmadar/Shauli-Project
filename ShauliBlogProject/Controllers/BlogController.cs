@@ -31,6 +31,19 @@ namespace ShauliBlogProject.Controllers
         [HttpPost]
         public ActionResult Index(int? id, string dateSearch, string authorSearch, string emailSearch, string wordsSearch)
         {
+            var segg = db.SeggPosts.Where(l => l.ByAuthor == authorSearch);
+            if(segg.Count() == 0)
+            {
+                var seg = new SeggPost { ByAuthor = authorSearch, Count = 1 };
+                db.SeggPosts.Add(seg);
+                db.SaveChanges();
+            }
+            else
+            {
+                segg.First().Count++;
+                db.SaveChanges();
+            }
+
             var result = (from post in db.Posts select post);
 
             if (!String.IsNullOrEmpty(dateSearch))
@@ -55,7 +68,7 @@ namespace ShauliBlogProject.Controllers
             return View(result);
         }
 
-        [Authorize(Roles = "Admins")]
+        //[Authorize(Roles = "Admins")]
         public ActionResult details(int id)
         {
             Post post = GetPost(id);
@@ -161,6 +174,16 @@ namespace ShauliBlogProject.Controllers
             ViewBag.fans = fans;
 
             return View();
+        }
+
+        public ActionResult _SeggPost()
+        {
+            var segg = (from s in db.SeggPosts
+                        orderby s.Count descending
+                        select s).First();
+
+            var post = db.Posts.Where(x => x.Author.Contains(segg.ByAuthor)).First();
+            return PartialView(post);
         }
 
         //To Delete

@@ -10,10 +10,14 @@ namespace ShauliBlogProject.Models
     {
         [Key]
         public int PostID { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Author { get; set; }
+        [Required]
         public string url_author_post { get; set; }
         public DateTime postDate { get; set; }
+        [Required]
         public string contentPost { get; set; }
         public string image { get; set; }
         public string video { get; set; }

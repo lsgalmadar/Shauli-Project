@@ -12,8 +12,10 @@ namespace ShauliBlogProject.Models
         public int CommentID { get; set; }
         public int PostID { get; set; }
         public string Title { get; set; }
+        [Required]
         public string Author { get; set; }
         public string url_author_comment { get; set; }
+        [Required]
         public string content_comment { get; set; }
 
         public virtual Post post { get; set; }
