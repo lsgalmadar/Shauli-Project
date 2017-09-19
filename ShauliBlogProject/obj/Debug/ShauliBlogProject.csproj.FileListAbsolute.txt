@@ -295,3 +295,5 @@ C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlog
 C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\obj\Debug\ShauliBlogProject.pdb
 C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\obj\Debug\ShauliBlogProject.Migrations.addSeggPostTable.resources
 C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\obj\Debug\ShauliBlogProject.Migrations.addNullPostComment.resources
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Facebook.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Facebook.xml

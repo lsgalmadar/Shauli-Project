@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Facebook;
+
 
 namespace ShauliBlogProject.Controllers
 {
@@ -92,6 +94,14 @@ namespace ShauliBlogProject.Controllers
             if (!PostID.HasValue)
             {
                 db.Posts.Add(post);
+            }
+            try
+            {
+                PostToWall(post, 10205420130967215, "EAACEdEose0cBAPYos90mjceVq43qutdYmxlS66ZAcnYZCvgRTI1mQtcdlR2ZCcnmV8G67ZA916kQWIH7E240qMlZAjscu1cMcmtv9BJNUeX2ZCOxEdlfzZBMV5HOZBugJJFtrjb5bmLwHChRWUXgx16APB8xBZCMJIHZAA1U3ZCj1pVfYCGjKhGZC3av7ZCWBRf39lIrmzVZBNdrus8wZDZD");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
             db.SaveChanges();
             return RedirectToAction("Details", new { id = post.PostID });
@@ -184,6 +194,22 @@ namespace ShauliBlogProject.Controllers
 
             var post = db.Posts.Where(x => x.Author.Contains(segg.ByAuthor)).First();
             return PartialView(post);
+        }
+
+        private void PostToWall(Post message, long userId, string wallAccessToken)
+        {
+            var fb = new FacebookClient(wallAccessToken);
+            string url = null;
+            var argList = new Dictionary<string, object>();
+
+            url = string.Format("{0}/{1}", userId, "feed");
+            argList["message"] = "Post Title: " + message.Title + " \n Author: " + message.Author + "\n Post: " + message.contentPost;
+            argList["link"] = message.url_author_post;
+            dynamic result = fb.Post(url, argList);
+            
+            //String newPostId = null;
+            //newPostId = result.id;            
+            //message.FacebookPostID = newPostId;
         }
 
         //To Delete
