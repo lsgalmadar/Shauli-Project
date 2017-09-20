@@ -8,9 +8,9 @@
 <script>
     $(document).ready(function () {
         $("div").click(function () {
-            $.get("http://api.openweathermap.org/data/2.5/weather?q=TelAviv&APPID=e90192ee2d111e992bab287e8d3e8869", function (response) {
+            $.get("http://api.openweathermap.org/data/2.5/weather?q=TelAviv&APPID=e90192ee2d111e992bab287e8d3e8869&units=imperial", function (response) {
                 $("#name").text(response.name);
-                $("#temp").text("The Tempature is: " + Math.round((response.main.temp - 32) * (5 / 9)));
+                $("#temp").text("The Tempature is: " + Math.round((response.main.temp - 32) * (5 / 9)) + "℃");
                 $("#humidity").text("Humidity: " + response.main.humidity);
                 $("#desc").text("Description: " + response.weather[0].description);
                 $("#w-btn").hide();
