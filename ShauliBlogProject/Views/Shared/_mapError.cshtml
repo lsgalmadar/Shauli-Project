@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="mainContent">
+    <div id="tc_top"></div>
+    <div id="tooplate_content">
+        <section class="post_box">
+            <h4 class="page-header">
+                Summary
+                <small>Number of Fans per country</small>
+            </h4>
+            <div id="map_canvas" style="width: 480px; height: 480px;margin-left: 140px;margin-bottom: 50px;"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoAjbWMGtd8VinKxGl8291xEd0pWWX_Ns&?sensor=false"></script>
+            <script type="text/javascript">
+                function initialize() {
+
+                    var mapOptions = {
+                        center: new google.maps.LatLng(31.3913989, 35.3259869),
+                        zoom: 7,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+
+                    //Initial-map
+                    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+                    @{ 
+                        <text> addMarkerOffice(31.9651589, 34.782334);</text>
+                        <text> addMarkerOffice(32.033168, 34.7580752); </text>
+                    }
+
+                    @{ 
+                        <text> addMarker(31.9651589, 34.782334); </text>
+                        <text> addMarker(31.9421398, 34.8397339); </text>
+                    }
+
+                    //Add-marker
+                    function addMarker(x, y) {
+                        var location = new google.maps.LatLng(x, y);
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: map,
+                        });
+                        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+                    }
+
+                    //Add-marker office
+                    function addMarkerOffice(x, y) {
+                        var location = new google.maps.LatLng(x, y);
+                        var marker = new google.maps.Marker({ position: location, map: map, });
+                        var imagePath = 'https://www.google.co.il/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjDjMCipa_WAhXHnRoKHblNCWwQjRwIBw&url=https%3A%2F%2Fdevelopers.google.com%2Fmaps%2Fget-started%2F&psig=AFQjCNHJSi_lbFKMFzwCXwTODDAauDlwYA&ust=1505843216230634';
+                        marker.setIcon(imagePath)
+                    }
+                }google.maps.event.addDomListener(window, 'load', initialize);
+            </script>
+        </section>
+    </div>
+</div>

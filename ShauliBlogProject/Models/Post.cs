@@ -23,5 +23,6 @@ namespace ShauliBlogProject.Models
         public string video { get; set; }
 
         public virtual ICollection<Comment> comments { get; set; }
+        public virtual PostType Types { get; set; }
     }
 }

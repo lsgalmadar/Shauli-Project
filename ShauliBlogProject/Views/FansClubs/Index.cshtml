@@ -9,6 +9,19 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<hr />
+<div id="filter-blog">
+    @using (Html.BeginForm("Index", "FansClubs", FormMethod.Post))
+    {
+        <span>Filter:</span>
+        <input id="input-h" type="search" name="nameSearch" placeholder="By Name.." style="width:105px;">
+        <input id="input-h" type="search" name="genderSearch" placeholder="By Gender.." style="width:105px;">
+        <input id="btn-filter" type="submit" value="Filter">
+    }
+</div>
+
+
 <table class="table">
     <tr>
         <th>

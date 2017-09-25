@@ -17,7 +17,9 @@ namespace ShauliBlogProject.DAL
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Maps> Maps { get; set; }
         public DbSet<SeggPost> SeggPosts { get; set; }
-  
+        public DbSet<PostType> Types { get; set; }
+        public DbSet<UserType> UserTypes { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

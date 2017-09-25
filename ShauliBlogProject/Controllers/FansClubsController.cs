@@ -21,6 +21,22 @@ namespace ShauliBlogProject.Controllers
             return View(db.FansClub.ToList());
         }
 
+        [HttpPost]
+        public ActionResult Index(string nameSearch, string genderSearch)
+        {
+            var fans = (from f in db.FansClub select f);
+            if (!String.IsNullOrEmpty(nameSearch))
+            {
+                fans = fans.Where(s => s.LastName.Contains(nameSearch) || s.FirstName.Contains(nameSearch));
+            }
+            if (!String.IsNullOrEmpty(genderSearch))
+            {
+                fans = fans.Where(s => s.Gender.Contains(genderSearch));
+            }
+
+            return View(fans);
+        }
+
         // GET: FansClubs/Details/5
         public ActionResult Details(int? id)
         {

@@ -400,3 +400,33 @@ C:\Users\i341716\git\Shauli_Project\ShauliBlogProject\obj\Debug\ShauliBlogProjec
 C:\Users\i341716\git\Shauli_Project\ShauliBlogProject\obj\Debug\ShauliBlogProject.csproj.GenerateResource.Cache
 C:\Users\i341716\git\Shauli_Project\ShauliBlogProject\obj\Debug\ShauliBlogProject.dll
 C:\Users\i341716\git\Shauli_Project\ShauliBlogProject\obj\Debug\ShauliBlogProject.pdb
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\obj\Debug\ShauliBlogProject.Migrations.changeDatabase.resources
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Accord.dll.config
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Accord.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Accord.xml
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Accord.Controls.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Accord.MachineLearning.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Accord.Math.Core.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Accord.Math.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Accord.Statistics.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\ZedGraph.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Accord.Controls.xml
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Accord.MachineLearning.xml
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Accord.Math.xml
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Accord.Math.Core.xml
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\Accord.Statistics.xml
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\ZedGraph.xml
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\de\ZedGraph.resources.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\es\ZedGraph.resources.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\fr\ZedGraph.resources.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\hu\ZedGraph.resources.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\it\ZedGraph.resources.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\ja\ZedGraph.resources.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\pt\ZedGraph.resources.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\ru\ZedGraph.resources.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\sk\ZedGraph.resources.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\sv\ZedGraph.resources.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\tr\ZedGraph.resources.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\zh-cn\ZedGraph.resources.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\bin\zh-tw\ZedGraph.resources.dll
+C:\Users\i341716\Documents\Visual Studio 2017\Projects\Shauli_Project\ShauliBlogProject\obj\Debug\ShauliBlogProject.Migrations.addMethod.resources
