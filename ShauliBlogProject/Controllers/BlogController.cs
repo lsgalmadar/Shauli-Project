@@ -166,6 +166,7 @@ namespace ShauliBlogProject.Controllers
             {
                 type = db.Types.Where(x => x.PostTypeID == PostID).First();
             }
+
             type.Food = food;
             type.Sport = sport;
             type.Vacation = vacation;
@@ -182,7 +183,7 @@ namespace ShauliBlogProject.Controllers
 
             try
             {
-                PostToWall(post, 10205420130967215, "EAACEdEose0cBAPYos90mjceVq43qutdYmxlS66ZAcnYZCvgRTI1mQtcdlR2ZCcnmV8G67ZA916kQWIH7E240qMlZAjscu1cMcmtv9BJNUeX2ZCOxEdlfzZBMV5HOZBugJJFtrjb5bmLwHChRWUXgx16APB8xBZCMJIHZAA1U3ZCj1pVfYCGjKhGZC3av7ZCWBRf39lIrmzVZBNdrus8wZDZD");
+                PostToWall(post, 10205420130967215, "EAACEdEose0cBAFiWjeXELmHmr6B3S6bm6RR4FbgzCe43MwYO6wxtDEngMCBOixFFIi40HYZChhfCVlBGZA8PU4G16tWL831gQgRh9tVwEW03eW4JmZAUjf7gvjBxZAasmtJ0x2NQa1ox6e2ZBjlzXK7Jf3dquxG5624STg2sMtCRQHjNsK35AjAeZAZCEt3i4YZD");
             }
             catch (Exception ex)
             {
@@ -203,7 +204,6 @@ namespace ShauliBlogProject.Controllers
                 }
                 db.SaveChanges();
             }
-
             return RedirectToAction("Details", new { id = post.PostID });
         }
 
@@ -227,6 +227,15 @@ namespace ShauliBlogProject.Controllers
         public ActionResult Edit(int? id)
         {
             Post post = GetPost(id);
+            if (id.HasValue)
+            {
+                PostType type = db.Types.Where(x => x.PostTypeID == id).First();
+                ViewBag.vFood = Convert.ToBoolean(type.Food);
+                ViewBag.vSport = Convert.ToBoolean(type.Sport);
+                ViewBag.vVacation = Convert.ToBoolean(type.Vacation);
+                ViewBag.vStudy = Convert.ToBoolean(type.Study);
+                ViewBag.vMusic = Convert.ToBoolean(type.Music);
+            }
             return View(post);
         }
 
@@ -316,11 +325,7 @@ namespace ShauliBlogProject.Controllers
             url = string.Format("{0}/{1}", userId, "feed");
             argList["message"] = "Post Title: " + message.Title + " \n Author: " + message.Author + "\n Post: " + message.contentPost;
             argList["link"] = message.url_author_post;
-            dynamic result = fb.Post(url, argList);
-            
-            //String newPostId = null;
-            //newPostId = result.id;            
-            //message.FacebookPostID = newPostId;
+            dynamic result = fb.Post(url, argList);           
         }
 
         //To Delete

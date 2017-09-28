@@ -3,6 +3,12 @@
 @{
     ViewBag.Title = "Edit";
     bool isAdmin = ViewBag.IsAdmin ?? false;
+
+    bool vFood = ViewBag.vFood ?? false;
+    bool vSport = ViewBag.vSport ?? false;
+    bool vVacation = ViewBag.vVacation ?? false;
+    bool vStudy = ViewBag.vStudy ?? false;
+    bool vMusic = ViewBag.vMusic ?? false;
 }
 
 <h4>Add New Post</h4>
@@ -21,12 +27,47 @@
         <input type="text" id="image-text" name="image" value="@Model.image" disabled /> Image <input type="checkbox" id="check-image" /> <br />
         <input type="text" id="video-text" name="video" value="@Model.video" disabled /> Video <input type="checkbox" id="check-video" /> <br />
 
-        <input type="checkbox" id="Food" name="food" value="1" /> Food       
-        <input type="checkbox" id="Sport" name="sport" value="1" /> Sport
-        <input type="checkbox" id="Vacation" name="vacation" value="1" /> Vacation
-        <input type="checkbox" id="Study" name="study" value="1" /> Study
-        <input type="checkbox" id="Music" name="music" value="1" /> Music <br />
-
+        @if (vFood)
+        {
+            <input type="checkbox" id="Food" name="food" value="1" checked /> <span>Food</span>
+        }
+        else
+        {
+            <input type="checkbox" id="Food" name="food" value="1" /> <span>Food</span>
+        }
+        @if (vSport)
+        {
+            <input type="checkbox" id="Sport" name="sport" value="1" checked /> <span>Sport</span>
+        }
+        else
+        {
+            <input type="checkbox" id="Sport" name="sport" value="1" /> <span>Sport</span>
+        }
+        @if (vVacation)
+        {
+            <input type="checkbox" id="Vacation" name="vacation" value="1" checked /> <span>Vacation</span>
+        }
+        else
+        {
+            <input type="checkbox" id="Vacation" name="vacation" value="1" /> <span>Vacation</span>
+        }
+        @if (vStudy)
+        {
+            <input type="checkbox" id="Study" name="study" value="1" checked /> <span>Study</span>
+        }
+        else
+        {
+            <input type="checkbox" id="Study" name="study" value="1" /> <span>Study</span>
+        }
+        @if (vMusic)
+        {
+            <input type="checkbox" id="Music" name="music" value="1" checked /> <span>Music</span>
+        }
+        else
+        {
+            <input type="checkbox" id="Music" name="music" value="1" /> <span>Music</span>
+        }
+        <br />
         <textarea name="contentPost" rows="10" cols="80">@Model.contentPost</textarea> <br />
         <input type="submit" name="submit" value="Submit" />
     </form>
