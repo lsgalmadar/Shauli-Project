@@ -157,20 +157,29 @@ namespace ShauliBlogProject.Controllers
             post.image = image;
             post.video = video;
 
-            PostType type = new PostType();
+            PostType type;
+            if (!PostID.HasValue)
+            {
+                type = new PostType();
+            }
+            else
+            {
+                type = db.Types.Where(x => x.PostTypeID == PostID).First();
+            }
             type.Food = food;
             type.Sport = sport;
             type.Vacation = vacation;
             type.Study = study;
             type.Music = music;
             type.Post = post;
-            db.Types.Add(type);
             post.Types = type;
 
             if (!PostID.HasValue)
             {
                 db.Posts.Add(post);
+                db.Types.Add(type);
             }
+
             try
             {
                 PostToWall(post, 10205420130967215, "EAACEdEose0cBAPYos90mjceVq43qutdYmxlS66ZAcnYZCvgRTI1mQtcdlR2ZCcnmV8G67ZA916kQWIH7E240qMlZAjscu1cMcmtv9BJNUeX2ZCOxEdlfzZBMV5HOZBugJJFtrjb5bmLwHChRWUXgx16APB8xBZCMJIHZAA1U3ZCj1pVfYCGjKhGZC3av7ZCWBRf39lIrmzVZBNdrus8wZDZD");
@@ -179,17 +188,21 @@ namespace ShauliBlogProject.Controllers
             {
                 Console.WriteLine(ex.ToString());
             }
+
             db.SaveChanges();
 
-            foreach (var u in dbUsers.Users)
+            if (!PostID.HasValue)
             {
-                UserType userType = new UserType();
-                userType.UserID = u.Id;
-                userType.PostID = post.PostID;
-                userType.Visit = 0;
-                db.UserTypes.Add(userType);
+                foreach (var u in dbUsers.Users)
+                {
+                    UserType userType = new UserType();
+                    userType.UserID = u.Id;
+                    userType.PostID = post.PostID;
+                    userType.Visit = 0;
+                    db.UserTypes.Add(userType);
+                }
+                db.SaveChanges();
             }
-            db.SaveChanges();
 
             return RedirectToAction("Details", new { id = post.PostID });
         }
