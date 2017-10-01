@@ -67,11 +67,13 @@ namespace ShauliBlogProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.FansClub.Add(fansClub);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (fansClub.Gender.ToLower() == "male" || fansClub.Gender.ToLower() == "female")
+                {
+                    db.FansClub.Add(fansClub);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
             return View(fansClub);
         }
 
