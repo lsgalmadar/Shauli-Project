@@ -67,13 +67,14 @@ namespace ShauliBlogProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (fansClub.Gender.ToLower() == "male" || fansClub.Gender.ToLower() == "female")
+                if ((fansClub.Gender.ToLower() == "male" || fansClub.Gender.ToLower() == "female") && fansClub.BirthDate.Year > 1752)
                 {
                     db.FansClub.Add(fansClub);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
             }
+            ViewBag.invalid = true;
             return View(fansClub);
         }
 

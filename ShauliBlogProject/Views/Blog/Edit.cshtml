@@ -20,10 +20,10 @@
             <input type="hidden" name="PostID" value="@Model.PostID" />
             datetime = DateTime.Now;
         }
-        <input type="text" name="postDate" value="@datetime" /> Date <br />
-        <input type="text" name="Title" value="@Model.Title" /> Title <br />
-        <input type="text" name="Author" value="@Model.Author" /> Author <br />
-        <input type="text" name="url_author_post" value="@Model.url_author_post" /> URL's Author  <br />
+        <input type="text" name="postDate" value="@datetime" readonly/> Date <br />
+        <input type="text" name="Title" value="@Model.Title" placeholder="Enter a Title.."/> Title <br />
+        <input type="text" name="Author" value="@Model.Author" placeholder="Enter Author's Name.."/> Author <br />
+        <input type="text" name="url_author_post" value="@Model.url_author_post" placeholder="For Facebook Please Enter URL.."/> URL's Author  <br />
         <input type="text" id="image-text" name="image" value="@Model.image" disabled /> Image <input type="checkbox" id="check-image" /> <br />
         <input type="text" id="video-text" name="video" value="@Model.video" disabled /> Video <input type="checkbox" id="check-video" /> <br />
 
