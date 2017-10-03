@@ -148,63 +148,67 @@ namespace ShauliBlogProject.Controllers
         [ValidateInput(false)]
         public ActionResult Update(int? PostID, string Title, string Author, string url_author_post, DateTime postDate, string contentPost, string image, string video, int food = 0, int sport = 0, int vacation = 0, int study = 0, int music = 0)
         {
-            Post post = GetPost(PostID);
-            post.Title = Title;
-            post.Author = Author;
-            post.url_author_post = url_author_post;
-            post.postDate = postDate;
-            post.contentPost = contentPost;
-            post.image = image;
-            post.video = video;
-
-            PostType type;
-            if (!PostID.HasValue)
+            if (!String.IsNullOrEmpty(Title) && !String.IsNullOrEmpty(Author) && !String.IsNullOrEmpty(url_author_post) && !String.IsNullOrEmpty(contentPost))
             {
-                type = new PostType();
-            }
-            else
-            {
-                type = db.Types.Where(x => x.PostTypeID == PostID).First();
-            }
+                Post post = GetPost(PostID);
+                post.Title = Title;
+                post.Author = Author;
+                post.url_author_post = url_author_post;
+                post.postDate = postDate;
+                post.contentPost = contentPost;
+                post.image = image;
+                post.video = video;
 
-            type.Food = food;
-            type.Sport = sport;
-            type.Vacation = vacation;
-            type.Study = study;
-            type.Music = music;
-            type.Post = post;
-            post.Types = type;
-
-            if (!PostID.HasValue)
-            {
-                db.Posts.Add(post);
-                db.Types.Add(type);
-            }
-
-            try
-            {
-                PostToWall(post, 10205420130967215, "EAACEdEose0cBAIGOHy0TQOLDzWvpFK5CzEieFmMwAax4imOWP9UtSAmNpdwolcYWnDG4Nb9RVcIRUzoAIHET9ZCaB4hN4CPxFi42jnEnYWvjZBxROFtYw9GJXTZC1bzXehTaOXGuGx6ZBPvW6XnZBd0dngTImn4tTYwfWDWyFrjrMEjYXSYRoyNegzFmZCEZCcZD");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-
-            db.SaveChanges();
-
-            if (!PostID.HasValue)
-            {
-                foreach (var u in dbUsers.Users)
+                PostType type;
+                if (!PostID.HasValue)
                 {
-                    UserType userType = new UserType();
-                    userType.UserID = u.Id;
-                    userType.PostID = post.PostID;
-                    userType.Visit = 0;
-                    db.UserTypes.Add(userType);
+                    type = new PostType();
                 }
+                else
+                {
+                    type = db.Types.Where(x => x.PostTypeID == PostID).First();
+                }
+
+                type.Food = food;
+                type.Sport = sport;
+                type.Vacation = vacation;
+                type.Study = study;
+                type.Music = music;
+                type.Post = post;
+                post.Types = type;
+
+                if (!PostID.HasValue)
+                {
+                    db.Posts.Add(post);
+                    db.Types.Add(type);
+                }
+
+                try
+                {
+                    PostToWall(post, 10205420130967215, "EAACEdEose0cBAIGOHy0TQOLDzWvpFK5CzEieFmMwAax4imOWP9UtSAmNpdwolcYWnDG4Nb9RVcIRUzoAIHET9ZCaB4hN4CPxFi42jnEnYWvjZBxROFtYw9GJXTZC1bzXehTaOXGuGx6ZBPvW6XnZBd0dngTImn4tTYwfWDWyFrjrMEjYXSYRoyNegzFmZCEZCcZD");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+
                 db.SaveChanges();
+
+                if (!PostID.HasValue)
+                {
+                    foreach (var u in dbUsers.Users)
+                    {
+                        UserType userType = new UserType();
+                        userType.UserID = u.Id;
+                        userType.PostID = post.PostID;
+                        userType.Visit = 0;
+                        db.UserTypes.Add(userType);
+                    }
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Details", new { id = post.PostID });
             }
-            return RedirectToAction("Details", new { id = post.PostID });
+            return RedirectToAction("Edit", new { id = PostID });
         }
 
         [ValidateInput(false)]
